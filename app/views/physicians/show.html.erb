@@ -10,13 +10,23 @@
   <%= @physician.specialty %>
 </p>
 
-<h3>
-  <ul>
+<h3>Office Locations</h3>
+  <table class="blueTable">
+    <tr>
+      <th>Street Address</th> <th>Zip Code</th> <th>Office Phone</th>
+    </tr>
+
+    <tr>
       <% @physician.offices.each do |office|%>
-      <li>Street Address: <%= office.street_address%><br> Zip Code: <%= office.zip_code%><br> Phone Number: <%= office.phone%></li>
+
+      <td><%= office.street_address%></td> <td><%= office.zip_code%></td> <td><%= office.phone%></td>
+
       <% end %>
-  </ul>
-</h3>
+
+    </tr>
+  
+  </table>
+    
 
 <%= link_to 'Edit', edit_physician_path(@physician) %> |
 <%= link_to 'Back', physicians_path %>
